@@ -1,0 +1,42 @@
+
+Now with VRAM improvements uses around 12 GB VRAM
+So you can use it very well on RTX 3090 on RunPod or locally on your computer
+
+select runpod template
+
+RunPod Pytorch 2.1
+runpod/pytorch
+:2.1.0-py3.10-cuda11.8.0-devel-ubuntu22.04
+
+you can pick any template though like stable diffusion as well
+
+edit pod
+make volume disk 70 gb - or any size you want
+
+add expose HTTP ports 7861 to connect via proxy
+it will by defualt start with --share with gradio share as well
+
+upload everything into workspace folder
+
+to install run below command
+
+export HF_HOME="/workspace"
+chmod +x RunPod_Install_SUPIR.sh
+./RunPod_Install_SUPIR.sh
+
+to use after install
+
+open a new terminal and run below code to start every time
+
+if you need additional arguments edit the file and run like below
+
+cd /workspace
+export HF_HOME="/workspace"
+export PYTHONWARNINGS=ignore
+apt update
+apt install ffmpeg --yes
+chmod +x RunPod_Start_SUPIR_Linux.sh
+./RunPod_Start_SUPIR_Linux.sh
+
+
+
